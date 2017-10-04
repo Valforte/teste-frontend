@@ -56,9 +56,7 @@
 			$.get('/getUser', {"access_token": self.accessToken()}, function (data) {
 				self.userData(data);
 			}).fail(function() {
-				localStorage.removeItem('access_token');
-				viewModel.data(undefined);
-				self.userData(undefined);
+				self.logout();
 			}).always(function() {
 				self.finishedLoading(true);
 			});
